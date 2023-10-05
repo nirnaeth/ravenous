@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { searchBusinesses } from '../services/api';
+
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('restaurant');
@@ -19,24 +21,9 @@ export default function SearchBar() {
   };
 
   const handleSearch = () => {
-    const apiKey = 's4OxW08HwYxBVKSKBVUdZ6uA3QH8d5gMkwNc0Lwy81DwcGKf2cS-tE7tJZYlUgluxXhVHEQrWpRZvJeAN0CruKzrucETHVgCyx6x9vXgdcB-WPYCqLBJLiHXy3keZXYx'
-    const options = {
-      method: 'GET', 
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        accept: 'application/json'
-      }
-    };
-
-    fetch(`/businesses/search?term=${searchTerm}&location=${searchLocation}&sort_by=${sortOption}&limit=20`, options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
-
-    console.log(`Searching for ${searchTerm}`);
-    console.log(`Searching for ${searchLocation}`);
-    console.log(`Sort option: ${sortOption}`);
-  }
+    searchBusinesses(searchTerm, searchLocation, sortOption)
+      .then(response => console.log(response));
+  };
 
   return (
     <div>
