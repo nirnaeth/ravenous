@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { searchBusinesses } from '../services/api';
 
 
-export default function SearchBar() {
+export default function SearchBar(props) {
   const [searchTerm, setSearchTerm] = useState('restaurant');
   const [searchLocation, setSearchLocation] = useState('Italy');
   const [sortOption, setSortOption] = useState('best_match');
@@ -22,7 +22,9 @@ export default function SearchBar() {
 
   const handleSearch = () => {
     searchBusinesses(searchTerm, searchLocation, sortOption)
-      .then(response => console.log(response));
+      .then(response => {
+        props.onSearch(response);
+      });
   };
 
   return (

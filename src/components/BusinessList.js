@@ -37,7 +37,9 @@ const businesses = [
   },
 ]
 
-export default function BusinessList() {
+export default function BusinessList(props) {
+  const businesses = props.searchResults?.businesses || [];
+  
   return (
     <ul>
       {
