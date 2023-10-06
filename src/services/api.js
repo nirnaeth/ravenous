@@ -1,5 +1,6 @@
 export const searchBusinesses = (searchTerm, searchLocation, sortOption) => {
-  const apiKey = 's4OxW08HwYxBVKSKBVUdZ6uA3QH8d5gMkwNc0Lwy81DwcGKf2cS-tE7tJZYlUgluxXhVHEQrWpRZvJeAN0CruKzrucETHVgCyx6x9vXgdcB-WPYCqLBJLiHXy3keZXYx'
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   const options = {
     method: 'GET', 
     headers: {
