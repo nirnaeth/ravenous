@@ -7,9 +7,9 @@ import { Input, Select, Button } from '@chakra-ui/react'
 
 
 export default function SearchBar(props) {
-  const [searchTerm, setSearchTerm] = useState('restaurant');
-  const [searchLocation, setSearchLocation] = useState('Italy');
-  const [sortOption, setSortOption] = useState('best_match');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchLocation, setSearchLocation] = useState('');
+  const [sortOption, setSortOption] = useState('');
 
   const handleTermChange = (e) => {
     setSearchTerm(e.target.value);
