@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { searchBusinesses } from '../services/api';
 
-import { Box, HStack, Spacer } from '@chakra-ui/react'
+import { Center, HStack, Spacer } from '@chakra-ui/react'
 import { Input, Select, Button } from '@chakra-ui/react'
 
 
@@ -31,7 +31,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <Box bg='tomato' w='50%' p={4} color='white'>
+    <Center bg='tomato' w='100%' p={4} color='white'>
       <HStack>
         <Input bg='white' size='sm' color='blueviolet' fontSize='md' fontWeight='semibold' placeholder='Keyword' value={searchTerm} onChange={handleTermChange} />
         <Input bg='white' size='sm' color='blueviolet' fontSize='md' fontWeight='semibold' placeholder='Location' value={searchLocation} onChange={handleLocationChange} />
@@ -45,6 +45,6 @@ export default function SearchBar(props) {
 
         <Button bg='blueViolet' color='white' size='md' onClick={handleSearch}>Go!</Button>
       </HStack>
-    </Box>
+    </Center>
   )
 }
