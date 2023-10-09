@@ -9,7 +9,12 @@ export const searchBusinesses = (searchTerm, searchLocation, sortOption) => {
     }
   };
 
-  return fetch(`/businesses/search?term=${searchTerm}&location=${searchLocation}&sort_by=${sortOption}&limit=20`, options)
+  const termParam = searchTerm ? `term=${searchTerm}` : '';
+  const locationParam = searchLocation ? `location=${searchLocation}` : '';
+  const sortParam = sortOption ? `sort_by=${sortOption}` : '';
+
+  // TODO: enhance limits
+  return fetch(`/businesses/search?${termParam}&${locationParam}&${sortParam}&limit=20`, options)
     .then(response => response.json())
     .catch(err => {console.error(err)});
 }
