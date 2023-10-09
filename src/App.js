@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ChakraProvider } from '@chakra-ui/react'
 import BusinessList from './components/BusinessList'
 import SearchBar from './components/SearchBar'
 
@@ -10,12 +11,14 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <SearchBar onSearch={handleSearchResults}/>
+    <ChakraProvider>
+      <div className="App">
+        <header className="App-header">
+          <SearchBar onSearch={handleSearchResults}/>
+        </header>
         <BusinessList searchResults={searchResults}/>
-      </header>
-    </div>
+      </div>
+    </ChakraProvider>
   );
 }
 

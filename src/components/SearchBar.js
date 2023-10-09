@@ -2,6 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { searchBusinesses } from '../services/api';
 
+import { Box, HStack, Spacer } from '@chakra-ui/react'
+import { Input, Select, Button } from '@chakra-ui/react'
+
 
 export default function SearchBar(props) {
   const [searchTerm, setSearchTerm] = useState('restaurant');
@@ -28,17 +31,20 @@ export default function SearchBar(props) {
   };
 
   return (
-    <div>
-      <input type='text' placeholder='Keyword' value={searchTerm} onChange={handleTermChange} />
-      <input type='text' placeholder='Location' value={searchLocation} onChange={handleLocationChange} />
-      
-      <select value={sortOption} onChange={handleSortChange}>
-        <option value="best_match">Best Match</option>
-        <option value="highest_rated">Highest Rated</option>
-        <option value="most_reviewed">Most Reviewed</option>
-      </select>
-      
-      <button onClick={handleSearch}>Go!</button>
-    </div>
+    <Box bg='tomato' w='50%' p={4} color='white'>
+      <HStack>
+        <Input bg='white' size='sm' color='blueviolet' fontSize='md' fontWeight='semibold' placeholder='Keyword' value={searchTerm} onChange={handleTermChange} />
+        <Input bg='white' size='sm' color='blueviolet' fontSize='md' fontWeight='semibold' placeholder='Location' value={searchLocation} onChange={handleLocationChange} />
+        <Select bg='white' size='sm' color='blueviolet' fontSize='md' fontWeight='semibold' placeholder='Sorted By' value={sortOption} onChange={handleSortChange}>
+          <option value="best_match">Best Match</option>
+          <option value="rating">Highest Rated</option>
+          <option value="review_count">Most Reviewed</option>
+        </Select>  
+        
+        <Spacer />
+
+        <Button bg='blueViolet' color='white' size='md' onClick={handleSearch}>Go!</Button>
+      </HStack>
+    </Box>
   )
 }
