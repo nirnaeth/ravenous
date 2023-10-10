@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+
 import { ChakraProvider } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import { Image, Heading } from '@chakra-ui/react'
+
 import BusinessList from './components/BusinessList'
 import SearchBar from './components/SearchBar'
 
